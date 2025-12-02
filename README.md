@@ -181,16 +181,5 @@ streamlit run app.py
 
 App opens at `http://localhost:8501`
 
-**First Run:** Downloads ~2GB of models (cached for future runs)
 
----
-
-## Assignment Completion
-
- **Stage 1 (40 pts)**: ResNet-50 trained on FER-2013, 64.8% accuracy  
- **Stage 2 (40 pts)**: RAG pipeline with LangChain, FAISS, sentiment analysis  
- **Stage 3 (20 pts)**: Architecture design, scalability analysis, ethics  
- **Bonus (+10 pts)**: Full Streamlit app with image upload & query tabs
-
-**Total: 110/100 points**
 
