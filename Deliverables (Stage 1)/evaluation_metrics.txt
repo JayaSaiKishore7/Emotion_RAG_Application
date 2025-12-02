@@ -1,0 +1,2 @@
+Evaluation Metrics:
+{'eval_loss': 0.997012734413147, 'eval_accuracy': 0.6219002507662301, 'eval_f1_macro': 0.5246875456944954, 'eval_runtime': 8.0085, 'eval_samples_per_second': 448.148, 'eval_steps_per_second': 28.095, 'epoch': 10.0}

@@ -1,0 +1,501 @@
+predicted_emotion,true_emotion,review_text
+sadness,anger,"Down about experience, expected better results."
+sadness,sadness,Heartbroken by misleading product descriptions online.
+surprise,surprise,"Startling effectiveness, pleasantly amazed daily!"
+neutral,sadness,"Decent purchase, gets job done sufficiently."
+happiness,happiness,"Love everything, couldn't ask for better!"
+fear,sadness,Frightened by obvious manufacturing flaws.
+neutral,sadness,"Neutral opinion, neither impressed nor disappointed."
+anger,anger,Rage-inducing false advertising and broken promises.
+fear,anger,"Alarming issues, scared it will break."
+fear,fear,Terrifying defects could cause injuries.
+sadness,sadness,Dejected by lack of support after sale.
+neutral,neutral,Satisfactory but unremarkable in all aspects.
+anger,fear,"Completely dissatisfied, demanding immediate refund now."
+sadness,sadness,"Melancholy purchase, wish never bought it."
+fear,fear,Frighteningly poor build quality risks.
+neutral,happiness,Acceptable quality level for price paid.
+neutral,neutral,"Average quality, meets minimum expectations only."
+anger,fear,"This made me livid, terrible quality control."
+neutral,neutral,Product performs adequately for basic needs.
+fear,fear,"Anxious using product, seems dangerous."
+sadness,anger,"Sorrowful decision, complete buyer's remorse now."
+happiness,anger,Absolutely thrilled with exceptional product quality!
+happiness,happiness,"Happiest customer, will definitely buy again!"
+neutral,fear,"Mediocre experience overall, nothing special."
+fear,sadness,Genuinely concerned about potential hazards.
+anger,anger,"Beyond angry, company refuses responsibility."
+sadness,neutral,"Really sad experience, failed expectations completely."
+fear,surprise,Nerve-wracking unreliability causes daily stress.
+neutral,sadness,"Ordinary quality, functions properly enough."
+happiness,sadness,Best purchase decision made this year!
+neutral,neutral,"Standard functionality, works as described."
+sadness,anger,Had hopes but product underperformed significantly.
+anger,fear,Angry doesn't describe my frustration adequately.
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+neutral,neutral,Adequate product serving intended purpose.
+neutral,anger,Satisfactory but unremarkable in all aspects.
+fear,fear,Frighteningly poor build quality risks.
+surprise,surprise,"Jaw-dropping quality, never saw coming!"
+fear,anger,"Dreadful quality, fearful of failures."
+anger,anger,"Extremely upset, product broke within days."
+sadness,sadness,"Feeling let down, not worth price paid."
+surprise,surprise,Genuinely shocked by superior quality levels!
+neutral,fear,Satisfactory but unremarkable in all aspects.
+happiness,surprise,Ecstatic about fast shipping and quality!
+sadness,sadness,"Disappointed by poor quality, money wasted."
+fear,fear,Worried about serious safety concerns here.
+surprise,surprise,Caught off guard by phenomenal features!
+sadness,sadness,"Disappointed tears, absolute waste of money."
+sadness,sadness,"Down about experience, expected better results."
+neutral,sadness,"Neutral opinion, neither impressed nor disappointed."
+happiness,surprise,"Perfect product, brings daily joy and satisfaction!"
+happiness,happiness,Exceeded expectations in every possible way!
+neutral,fear,"Neutral opinion, neither impressed nor disappointed."
+happiness,happiness,"Highly recommend, worth every single penny!"
+sadness,fear,"Down about experience, expected better results."
+neutral,neutral,Satisfactory but unremarkable in all aspects.
+neutral,anger,"Standard functionality, works as described."
+surprise,surprise,"Wow, totally unexpected excellent performance results!"
+fear,fear,"Alarming issues, scared it will break."
+happiness,happiness,Exceeded expectations in every possible way!
+happiness,fear,Delighted by outstanding customer service experience!
+fear,surprise,"Anxious using product, seems dangerous."
+sadness,sadness,"Really sad experience, failed expectations completely."
+neutral,anger,Product performs adequately for basic needs.
+happiness,neutral,Delighted by outstanding customer service experience!
+happiness,happiness,Exceeded expectations in every possible way!
+sadness,sadness,Dejected by lack of support after sale.
+happiness,happiness,Best purchase decision made this year!
+neutral,neutral,"Standard functionality, works as described."
+happiness,fear,"Highly recommend, worth every single penny!"
+surprise,surprise,"What shock, blown away completely!"
+neutral,neutral,"Neutral opinion, neither impressed nor disappointed."
+happiness,happiness,Ecstatic about fast shipping and quality!
+anger,happiness,Absolutely furious with purchase quality issues.
+neutral,neutral,"Ordinary quality, functions properly enough."
+fear,fear,Frighteningly poor build quality risks.
+happiness,happiness,"Happiest customer, will definitely buy again!"
+happiness,happiness,Delighted by outstanding customer service experience!
+surprise,neutral,"Astonishing value, exceeded wildest dreams!"
+neutral,anger,"Ordinary quality, functions properly enough."
+sadness,sadness,"Melancholy purchase, wish never bought it."
+anger,anger,"Outrageous product defects, unacceptable standards."
+anger,anger,Infuriating delivery delays and poor communication.
+anger,anger,Worst customer service experience ever encountered.
+surprise,surprise,"Surprising excellence, never anticipated this!"
+surprise,surprise,Unexpected brilliance in design and function!
+anger,fear,Angry doesn't describe my frustration adequately.
+neutral,fear,Acceptable quality level for price paid.
+happiness,happiness,Delighted by outstanding customer service experience!
+happiness,happiness,"Happiest customer, will definitely buy again!"
+surprise,surprise,"Jaw-dropping quality, never saw coming!"
+sadness,fear,Dejected by lack of support after sale.
+surprise,fear,"Startling effectiveness, pleasantly amazed daily!"
+anger,anger,Angry doesn't describe my frustration adequately.
+happiness,happiness,Best purchase decision made this year!
+surprise,surprise,Incredible surprise beyond initial expectations!
+sadness,happiness,"Really sad experience, failed expectations completely."
+surprise,surprise,Unexpected brilliance in design and function!
+fear,happiness,"Intimidating risks, worried about consequences."
+neutral,sadness,"Standard functionality, works as described."
+happiness,happiness,Exceeded expectations in every possible way!
+surprise,surprise,"Jaw-dropping quality, never saw coming!"
+neutral,happiness,Adequate product serving intended purpose.
+fear,fear,Terrifying defects could cause injuries.
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+surprise,surprise,Unexpected brilliance in design and function!
+surprise,surprise,Incredible surprise beyond initial expectations!
+sadness,sadness,"Melancholy purchase, wish never bought it."
+surprise,surprise,"Wow, totally unexpected excellent performance results!"
+sadness,anger,"Melancholy purchase, wish never bought it."
+happiness,happiness,"Perfect product, brings daily joy and satisfaction!"
+anger,neutral,Infuriating delivery delays and poor communication.
+happiness,happiness,"Love everything, couldn't ask for better!"
+happiness,surprise,"Highly recommend, worth every single penny!"
+happiness,surprise,Absolutely thrilled with exceptional product quality!
+neutral,fear,Adequate product serving intended purpose.
+anger,anger,Absolutely furious with purchase quality issues.
+sadness,sadness,"Really sad experience, failed expectations completely."
+surprise,surprise,Genuinely shocked by superior quality levels!
+fear,fear,Frighteningly poor build quality risks.
+surprise,surprise,Caught off guard by phenomenal features!
+surprise,surprise,Genuinely shocked by superior quality levels!
+happiness,happiness,Delighted by outstanding customer service experience!
+anger,anger,"Completely dissatisfied, demanding immediate refund now."
+neutral,happiness,"Ordinary quality, functions properly enough."
+sadness,fear,Dejected by lack of support after sale.
+neutral,neutral,Acceptable quality level for price paid.
+fear,fear,"Dreadful quality, fearful of failures."
+happiness,happiness,"Love everything, couldn't ask for better!"
+happiness,happiness,Delighted by outstanding customer service experience!
+sadness,fear,"Disappointed by poor quality, money wasted."
+fear,fear,"Anxious using product, seems dangerous."
+happiness,neutral,Delighted by outstanding customer service experience!
+anger,sadness,"Extremely upset, product broke within days."
+sadness,sadness,"Really sad experience, failed expectations completely."
+neutral,happiness,"Standard functionality, works as described."
+fear,fear,Genuinely concerned about potential hazards.
+happiness,happiness,Best purchase decision made this year!
+sadness,disgust,"Melancholy purchase, wish never bought it."
+happiness,happiness,Exceeded expectations in every possible way!
+happiness,happiness,"Perfect product, brings daily joy and satisfaction!"
+sadness,sadness,Dejected by lack of support after sale.
+anger,anger,Absolutely furious with purchase quality issues.
+happiness,happiness,"Highly recommend, worth every single penny!"
+fear,anger,Genuinely concerned about potential hazards.
+sadness,neutral,"Disappointed tears, absolute waste of money."
+neutral,neutral,Satisfactory but unremarkable in all aspects.
+sadness,fear,Heartbroken by misleading product descriptions online.
+sadness,anger,Had hopes but product underperformed significantly.
+sadness,sadness,"Disappointed tears, absolute waste of money."
+anger,fear,Absolutely furious with purchase quality issues.
+neutral,sadness,"Mediocre experience overall, nothing special."
+sadness,sadness,"Feeling let down, not worth price paid."
+neutral,neutral,"Average quality, meets minimum expectations only."
+sadness,neutral,"Feeling let down, not worth price paid."
+neutral,fear,Product performs adequately for basic needs.
+happiness,happiness,Absolutely thrilled with exceptional product quality!
+fear,neutral,Nerve-wracking unreliability causes daily stress.
+happiness,happiness,Ecstatic about fast shipping and quality!
+neutral,fear,"Mediocre experience overall, nothing special."
+fear,anger,"Alarming issues, scared it will break."
+happiness,happiness,Ecstatic about fast shipping and quality!
+surprise,surprise,"Jaw-dropping quality, never saw coming!"
+happiness,happiness,Absolutely thrilled with exceptional product quality!
+happiness,anger,"Perfect product, brings daily joy and satisfaction!"
+surprise,surprise,"Wow, totally unexpected excellent performance results!"
+sadness,anger,Had hopes but product underperformed significantly.
+happiness,happiness,"Love everything, couldn't ask for better!"
+neutral,fear,Product performs adequately for basic needs.
+sadness,neutral,"Sorrowful decision, complete buyer's remorse now."
+fear,happiness,Terrifying defects could cause injuries.
+sadness,sadness,"Feeling let down, not worth price paid."
+sadness,anger,Dejected by lack of support after sale.
+fear,fear,Nerve-wracking unreliability causes daily stress.
+sadness,anger,Dejected by lack of support after sale.
+neutral,happiness,"Average quality, meets minimum expectations only."
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+surprise,surprise,"What shock, blown away completely!"
+happiness,happiness,"Love everything, couldn't ask for better!"
+sadness,anger,"Sorrowful decision, complete buyer's remorse now."
+fear,fear,Frightened by obvious manufacturing flaws.
+happiness,happiness,"Love everything, couldn't ask for better!"
+happiness,happiness,"Happiest customer, will definitely buy again!"
+happiness,happiness,Delighted by outstanding customer service experience!
+anger,fear,"This made me livid, terrible quality control."
+happiness,happiness,Absolutely thrilled with exceptional product quality!
+fear,fear,"Anxious using product, seems dangerous."
+neutral,neutral,"Standard functionality, works as described."
+surprise,surprise,"Jaw-dropping quality, never saw coming!"
+happiness,happiness,Exceeded expectations in every possible way!
+sadness,sadness,"Really sad experience, failed expectations completely."
+anger,anger,"Extremely upset, product broke within days."
+happiness,happiness,"Perfect product, brings daily joy and satisfaction!"
+surprise,surprise,Caught off guard by phenomenal features!
+sadness,sadness,Dejected by lack of support after sale.
+neutral,anger,Adequate product serving intended purpose.
+fear,anger,Frightened by obvious manufacturing flaws.
+neutral,neutral,Product performs adequately for basic needs.
+happiness,happiness,Best purchase decision made this year!
+happiness,happiness,Absolutely thrilled with exceptional product quality!
+anger,anger,"Completely dissatisfied, demanding immediate refund now."
+happiness,happiness,Best purchase decision made this year!
+sadness,sadness,"Melancholy purchase, wish never bought it."
+fear,happiness,Terrifying defects could cause injuries.
+neutral,neutral,"Average quality, meets minimum expectations only."
+neutral,neutral,"Decent purchase, gets job done sufficiently."
+surprise,surprise,Incredible surprise beyond initial expectations!
+happiness,happiness,Absolutely thrilled with exceptional product quality!
+surprise,surprise,"Startling effectiveness, pleasantly amazed daily!"
+sadness,sadness,"Disappointed by poor quality, money wasted."
+happiness,happiness,Delighted by outstanding customer service experience!
+neutral,neutral,"Average quality, meets minimum expectations only."
+anger,happiness,Rage-inducing false advertising and broken promises.
+happiness,happiness,"Highly recommend, worth every single penny!"
+sadness,happiness,"Sorrowful decision, complete buyer's remorse now."
+anger,fear,"Completely dissatisfied, demanding immediate refund now."
+happiness,surprise,"Happiest customer, will definitely buy again!"
+fear,neutral,Genuinely concerned about potential hazards.
+fear,anger,Frightened by obvious manufacturing flaws.
+neutral,anger,"Neutral opinion, neither impressed nor disappointed."
+happiness,happiness,"Happiest customer, will definitely buy again!"
+neutral,neutral,"Ordinary quality, functions properly enough."
+sadness,sadness,"Sorrowful decision, complete buyer's remorse now."
+neutral,neutral,"Mediocre experience overall, nothing special."
+happiness,happiness,Ecstatic about fast shipping and quality!
+happiness,happiness,Absolutely thrilled with exceptional product quality!
+neutral,neutral,Adequate product serving intended purpose.
+happiness,happiness,Exceeded expectations in every possible way!
+happiness,happiness,"Love everything, couldn't ask for better!"
+sadness,happiness,"Down about experience, expected better results."
+fear,neutral,Frighteningly poor build quality risks.
+happiness,happiness,Ecstatic about fast shipping and quality!
+fear,surprise,Terrifying defects could cause injuries.
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+surprise,fear,Genuinely shocked by superior quality levels!
+happiness,happiness,"Perfect product, brings daily joy and satisfaction!"
+happiness,happiness,Exceeded expectations in every possible way!
+fear,neutral,Frightened by obvious manufacturing flaws.
+sadness,sadness,Heartbroken by misleading product descriptions online.
+sadness,surprise,"Really sad experience, failed expectations completely."
+sadness,sadness,Dejected by lack of support after sale.
+neutral,neutral,Adequate product serving intended purpose.
+happiness,happiness,Delighted by outstanding customer service experience!
+happiness,happiness,"Perfect product, brings daily joy and satisfaction!"
+neutral,neutral,Satisfactory but unremarkable in all aspects.
+anger,anger,Rage-inducing false advertising and broken promises.
+sadness,sadness,"Feeling let down, not worth price paid."
+surprise,happiness,"Surprising excellence, never anticipated this!"
+happiness,happiness,Best purchase decision made this year!
+fear,sadness,Genuinely concerned about potential hazards.
+anger,anger,"Completely dissatisfied, demanding immediate refund now."
+surprise,surprise,Caught off guard by phenomenal features!
+anger,anger,Infuriating delivery delays and poor communication.
+sadness,sadness,Heartbroken by misleading product descriptions online.
+fear,surprise,"Dreadful quality, fearful of failures."
+anger,anger,"Outrageous product defects, unacceptable standards."
+neutral,neutral,Satisfactory but unremarkable in all aspects.
+happiness,happiness,Best purchase decision made this year!
+anger,sadness,Rage-inducing false advertising and broken promises.
+neutral,sadness,"Standard functionality, works as described."
+fear,fear,Nerve-wracking unreliability causes daily stress.
+neutral,neutral,"Standard functionality, works as described."
+neutral,neutral,Acceptable quality level for price paid.
+surprise,surprise,Caught off guard by phenomenal features!
+neutral,neutral,"Neutral opinion, neither impressed nor disappointed."
+sadness,fear,"Sorrowful decision, complete buyer's remorse now."
+anger,anger,"Outrageous product defects, unacceptable standards."
+fear,anger,"Anxious using product, seems dangerous."
+anger,anger,Infuriating delivery delays and poor communication.
+anger,anger,Angry doesn't describe my frustration adequately.
+neutral,neutral,"Average quality, meets minimum expectations only."
+anger,anger,Angry doesn't describe my frustration adequately.
+anger,anger,Angry doesn't describe my frustration adequately.
+happiness,happiness,Best purchase decision made this year!
+neutral,sadness,Acceptable quality level for price paid.
+sadness,sadness,"Feeling let down, not worth price paid."
+fear,fear,Worried about serious safety concerns here.
+fear,neutral,Nerve-wracking unreliability causes daily stress.
+neutral,neutral,Satisfactory but unremarkable in all aspects.
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+happiness,happiness,Best purchase decision made this year!
+neutral,neutral,"Ordinary quality, functions properly enough."
+fear,sadness,Worried about serious safety concerns here.
+anger,sadness,"This made me livid, terrible quality control."
+surprise,surprise,Genuinely shocked by superior quality levels!
+sadness,fear,"Disappointed by poor quality, money wasted."
+neutral,sadness,Adequate product serving intended purpose.
+happiness,happiness,"Happiest customer, will definitely buy again!"
+surprise,surprise,"Astonishing value, exceeded wildest dreams!"
+fear,sadness,"Intimidating risks, worried about consequences."
+fear,anger,Genuinely concerned about potential hazards.
+neutral,neutral,Acceptable quality level for price paid.
+anger,anger,Rage-inducing false advertising and broken promises.
+happiness,happiness,Ecstatic about fast shipping and quality!
+surprise,surprise,"Jaw-dropping quality, never saw coming!"
+happiness,happiness,Best purchase decision made this year!
+surprise,fear,"What shock, blown away completely!"
+happiness,happiness,Absolutely thrilled with exceptional product quality!
+anger,anger,"Completely dissatisfied, demanding immediate refund now."
+neutral,neutral,Adequate product serving intended purpose.
+anger,anger,Infuriating delivery delays and poor communication.
+anger,anger,Angry doesn't describe my frustration adequately.
+happiness,happiness,"Highly recommend, worth every single penny!"
+sadness,sadness,Had hopes but product underperformed significantly.
+neutral,neutral,Adequate product serving intended purpose.
+neutral,neutral,"Mediocre experience overall, nothing special."
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+sadness,fear,"Disappointed by poor quality, money wasted."
+happiness,happiness,Best purchase decision made this year!
+neutral,neutral,"Ordinary quality, functions properly enough."
+sadness,fear,"Disappointed tears, absolute waste of money."
+surprise,happiness,"What shock, blown away completely!"
+anger,anger,Absolutely furious with purchase quality issues.
+happiness,happiness,"Highly recommend, worth every single penny!"
+neutral,anger,Adequate product serving intended purpose.
+surprise,surprise,"Startling effectiveness, pleasantly amazed daily!"
+happiness,happiness,Ecstatic about fast shipping and quality!
+happiness,happiness,"Highly recommend, worth every single penny!"
+neutral,sadness,Acceptable quality level for price paid.
+neutral,neutral,"Average quality, meets minimum expectations only."
+neutral,anger,"Ordinary quality, functions properly enough."
+fear,fear,"Alarming issues, scared it will break."
+anger,anger,Angry doesn't describe my frustration adequately.
+neutral,anger,"Average quality, meets minimum expectations only."
+happiness,happiness,"Love everything, couldn't ask for better!"
+anger,anger,"This made me livid, terrible quality control."
+fear,fear,Worried about serious safety concerns here.
+happiness,happiness,Exceeded expectations in every possible way!
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+anger,anger,Rage-inducing false advertising and broken promises.
+sadness,neutral,"Sorrowful decision, complete buyer's remorse now."
+neutral,sadness,"Standard functionality, works as described."
+happiness,happiness,Best purchase decision made this year!
+anger,anger,"Beyond angry, company refuses responsibility."
+surprise,surprise,"What shock, blown away completely!"
+sadness,fear,Heartbroken by misleading product descriptions online.
+sadness,anger,Had hopes but product underperformed significantly.
+happiness,happiness,"Highly recommend, worth every single penny!"
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+neutral,neutral,Product performs adequately for basic needs.
+anger,disgust,Infuriating delivery delays and poor communication.
+surprise,happiness,"Surprising excellence, never anticipated this!"
+neutral,neutral,Satisfactory but unremarkable in all aspects.
+happiness,happiness,"Love everything, couldn't ask for better!"
+neutral,fear,"Decent purchase, gets job done sufficiently."
+surprise,surprise,Genuinely shocked by superior quality levels!
+happiness,neutral,"Overjoyed with results, exactly as advertised!"
+sadness,sadness,Had hopes but product underperformed significantly.
+sadness,sadness,"Sorrowful decision, complete buyer's remorse now."
+happiness,happiness,"Love everything, couldn't ask for better!"
+surprise,surprise,"Startling effectiveness, pleasantly amazed daily!"
+neutral,fear,"Decent purchase, gets job done sufficiently."
+sadness,sadness,Had hopes but product underperformed significantly.
+anger,anger,Infuriating delivery delays and poor communication.
+surprise,surprise,"Jaw-dropping quality, never saw coming!"
+neutral,sadness,"Decent purchase, gets job done sufficiently."
+anger,sadness,"Outrageous product defects, unacceptable standards."
+happiness,happiness,"Perfect product, brings daily joy and satisfaction!"
+sadness,fear,"Feeling let down, not worth price paid."
+sadness,neutral,"Disappointed by poor quality, money wasted."
+neutral,fear,"Mediocre experience overall, nothing special."
+neutral,neutral,"Average quality, meets minimum expectations only."
+surprise,surprise,Incredible surprise beyond initial expectations!
+surprise,surprise,"Jaw-dropping quality, never saw coming!"
+surprise,surprise,"Surprising excellence, never anticipated this!"
+sadness,fear,"Disappointed by poor quality, money wasted."
+neutral,neutral,"Average quality, meets minimum expectations only."
+neutral,neutral,Satisfactory but unremarkable in all aspects.
+neutral,neutral,Satisfactory but unremarkable in all aspects.
+anger,fear,"Extremely upset, product broke within days."
+neutral,neutral,"Ordinary quality, functions properly enough."
+sadness,sadness,Had hopes but product underperformed significantly.
+happiness,happiness,Ecstatic about fast shipping and quality!
+happiness,happiness,"Perfect product, brings daily joy and satisfaction!"
+sadness,fear,"Sorrowful decision, complete buyer's remorse now."
+neutral,neutral,Acceptable quality level for price paid.
+sadness,fear,"Down about experience, expected better results."
+neutral,anger,"Ordinary quality, functions properly enough."
+surprise,surprise,Genuinely shocked by superior quality levels!
+sadness,sadness,Had hopes but product underperformed significantly.
+neutral,sadness,"Decent purchase, gets job done sufficiently."
+happiness,neutral,"Love everything, couldn't ask for better!"
+neutral,neutral,"Decent purchase, gets job done sufficiently."
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+anger,surprise,Worst customer service experience ever encountered.
+surprise,surprise,Genuinely shocked by superior quality levels!
+neutral,anger,Satisfactory but unremarkable in all aspects.
+neutral,neutral,Acceptable quality level for price paid.
+neutral,neutral,Product performs adequately for basic needs.
+sadness,sadness,Dejected by lack of support after sale.
+happiness,happiness,Ecstatic about fast shipping and quality!
+neutral,fear,"Decent purchase, gets job done sufficiently."
+happiness,happiness,"Love everything, couldn't ask for better!"
+sadness,sadness,"Melancholy purchase, wish never bought it."
+fear,surprise,Frightened by obvious manufacturing flaws.
+neutral,neutral,Product performs adequately for basic needs.
+neutral,neutral,Satisfactory but unremarkable in all aspects.
+surprise,surprise,Incredible surprise beyond initial expectations!
+fear,fear,"Anxious using product, seems dangerous."
+sadness,sadness,"Melancholy purchase, wish never bought it."
+neutral,anger,"Ordinary quality, functions properly enough."
+happiness,happiness,"Love everything, couldn't ask for better!"
+anger,anger,Absolutely furious with purchase quality issues.
+sadness,surprise,"Down about experience, expected better results."
+happiness,happiness,Delighted by outstanding customer service experience!
+anger,anger,Infuriating delivery delays and poor communication.
+sadness,sadness,Had hopes but product underperformed significantly.
+happiness,happiness,Exceeded expectations in every possible way!
+happiness,happiness,Best purchase decision made this year!
+neutral,neutral,Adequate product serving intended purpose.
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+neutral,neutral,"Mediocre experience overall, nothing special."
+happiness,fear,Delighted by outstanding customer service experience!
+neutral,anger,"Neutral opinion, neither impressed nor disappointed."
+surprise,surprise,"Jaw-dropping quality, never saw coming!"
+surprise,surprise,Unexpected brilliance in design and function!
+happiness,happiness,"Happiest customer, will definitely buy again!"
+sadness,sadness,Heartbroken by misleading product descriptions online.
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+neutral,sadness,"Decent purchase, gets job done sufficiently."
+neutral,neutral,Acceptable quality level for price paid.
+sadness,anger,"Disappointed by poor quality, money wasted."
+happiness,happiness,"Highly recommend, worth every single penny!"
+anger,anger,Infuriating delivery delays and poor communication.
+neutral,happiness,Product performs adequately for basic needs.
+neutral,neutral,Satisfactory but unremarkable in all aspects.
+neutral,sadness,Product performs adequately for basic needs.
+happiness,happiness,Exceeded expectations in every possible way!
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+sadness,sadness,"Really sad experience, failed expectations completely."
+anger,disgust,Absolutely furious with purchase quality issues.
+neutral,anger,Acceptable quality level for price paid.
+happiness,happiness,"Love everything, couldn't ask for better!"
+anger,anger,"Extremely upset, product broke within days."
+neutral,sadness,"Average quality, meets minimum expectations only."
+neutral,sadness,"Ordinary quality, functions properly enough."
+neutral,sadness,Acceptable quality level for price paid.
+happiness,happiness,Best purchase decision made this year!
+fear,fear,Frighteningly poor build quality risks.
+neutral,fear,"Decent purchase, gets job done sufficiently."
+happiness,happiness,Absolutely thrilled with exceptional product quality!
+sadness,fear,"Melancholy purchase, wish never bought it."
+fear,fear,Genuinely concerned about potential hazards.
+sadness,anger,Heartbroken by misleading product descriptions online.
+anger,neutral,Worst customer service experience ever encountered.
+happiness,happiness,"Highly recommend, worth every single penny!"
+neutral,anger,Satisfactory but unremarkable in all aspects.
+fear,anger,"Anxious using product, seems dangerous."
+happiness,happiness,Ecstatic about fast shipping and quality!
+happiness,happiness,"Highly recommend, worth every single penny!"
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+sadness,sadness,"Down about experience, expected better results."
+happiness,happiness,"Happiest customer, will definitely buy again!"
+neutral,fear,"Decent purchase, gets job done sufficiently."
+happiness,happiness,"Overjoyed with results, exactly as advertised!"
+fear,surprise,"Dreadful quality, fearful of failures."
+surprise,surprise,Unexpected brilliance in design and function!
+anger,disgust,Infuriating delivery delays and poor communication.
+surprise,fear,Incredible surprise beyond initial expectations!
+neutral,fear,Product performs adequately for basic needs.
+neutral,neutral,"Neutral opinion, neither impressed nor disappointed."
+neutral,sadness,"Mediocre experience overall, nothing special."
+happiness,happiness,Absolutely thrilled with exceptional product quality!
+sadness,neutral,Dejected by lack of support after sale.
+sadness,neutral,"Down about experience, expected better results."
+happiness,happiness,Exceeded expectations in every possible way!
+happiness,happiness,Absolutely thrilled with exceptional product quality!
+neutral,anger,Satisfactory but unremarkable in all aspects.
+sadness,sadness,"Sorrowful decision, complete buyer's remorse now."
+sadness,sadness,"Disappointed by poor quality, money wasted."
+fear,fear,Nerve-wracking unreliability causes daily stress.
+sadness,sadness,"Melancholy purchase, wish never bought it."
+neutral,happiness,"Average quality, meets minimum expectations only."
+neutral,neutral,"Neutral opinion, neither impressed nor disappointed."
+happiness,happiness,Delighted by outstanding customer service experience!
+happiness,neutral,Ecstatic about fast shipping and quality!
+anger,anger,Infuriating delivery delays and poor communication.
+sadness,sadness,Dejected by lack of support after sale.
+neutral,neutral,"Standard functionality, works as described."
+surprise,sadness,"Wow, totally unexpected excellent performance results!"
+anger,anger,"Beyond angry, company refuses responsibility."
+neutral,neutral,"Average quality, meets minimum expectations only."
+happiness,happiness,"Happiest customer, will definitely buy again!"
+sadness,sadness,"Feeling let down, not worth price paid."
+happiness,happiness,Absolutely thrilled with exceptional product quality!
+sadness,neutral,Heartbroken by misleading product descriptions online.
+neutral,neutral,Adequate product serving intended purpose.
+neutral,happiness,Satisfactory but unremarkable in all aspects.
+happiness,happiness,"Love everything, couldn't ask for better!"
+neutral,sadness,Adequate product serving intended purpose.
+anger,anger,Absolutely furious with purchase quality issues.
+fear,fear,Frighteningly poor build quality risks.
+neutral,neutral,Satisfactory but unremarkable in all aspects.
+fear,fear,Worried about serious safety concerns here.
+surprise,surprise,"Startling effectiveness, pleasantly amazed daily!"
+neutral,anger,"Neutral opinion, neither impressed nor disappointed."
+neutral,neutral,Satisfactory but unremarkable in all aspects.
+happiness,sadness,"Love everything, couldn't ask for better!"
+happiness,happiness,"Highly recommend, worth every single penny!"
+neutral,fear,Satisfactory but unremarkable in all aspects.
