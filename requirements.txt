@@ -1,0 +1,8 @@
+﻿streamlit
+torch
+transformers
+huggingface-hub
+langchain
+faiss-cpu
+sentence-transformers
+Pillow
