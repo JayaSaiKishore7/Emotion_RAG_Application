@@ -40,7 +40,7 @@ except Exception as e:
     print("ERROR in RAG pipeline test:", e)
     traceback.print_exc()
 
-# Test 3: sentiment
+# Test 3: Sentiment
 try:
     print("\n--- Test: analyze_sentiment() ---")
     s = m.analyze_sentiment(sentiment_pipe, sentiment_labels, "This is a wonderful product!")
