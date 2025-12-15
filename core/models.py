@@ -202,6 +202,10 @@ def load_rag_pipeline():
             model="google/flan-t5-base",
             max_length=150,
             device=device_id
+           ## "text2text-generation",
+           ## model="google/flan-t5-base",
+            ## max_length=150,
+            ## device=device_id
         )
         llm = HuggingFacePipeline(pipeline=llm_pipeline)
         print("DEBUG: ✓ LLM pipeline loaded successfully")
