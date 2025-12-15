@@ -83,6 +83,16 @@ layout ="wide"
 
 )
 
+## st .set_page_config (
+
+## page_title ="Facial Emotion RAG System",
+
+## page_icon ="🤖",
+
+## layout ="wide"
+
+# )
+
 
 
 st .title ("Facial Emotion-Driven Review Analysis 🤖")
