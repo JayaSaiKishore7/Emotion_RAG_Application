@@ -111,6 +111,13 @@ with st .sidebar :
 
     st .code (f"Working Dir: {os .getcwd ()}")
 
+   ## st .header ("Debug Information")
+
+   ## st .code (f"Python: {sys .version [:30 ]}...")
+
+   ## st .code (f"Working Dir: {os .getcwd ()}")
+
+
 
 
     if st .button ("Show Full Debug Info"):
