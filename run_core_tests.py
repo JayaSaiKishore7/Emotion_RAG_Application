@@ -16,7 +16,7 @@ except Exception as e:
     print("ERROR in emotion model test:", e)
     traceback.print_exc()
 
-# Test 2: RAG pipeline
+ #Test 2: RAG pipelines
 try:
     print("\n--- Test: load_rag_pipeline() ---")
     db, llm, embeddings, sentiment_pipe, sentiment_labels = m.load_rag_pipeline()
