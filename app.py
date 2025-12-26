@@ -4,7 +4,7 @@
 
 Streamlit app for Facial Emotion-Driven Review Analysis.
 
-This version includes extensive debugging and error handling.
+This version includes extensive debugging and error handling..
 
 """
 
