@@ -54,11 +54,11 @@ Display Results
 
 **Model:** Fine-tuned ResNet-50 on FER-2013 dataset (28,709 training images, 7 emotion classes)
 
-**Results:**
-* Test Accuracy: **64.8%**
-* Weighted F1-Score: **0.64**
-* Best performing: Happy (82%)
-* Most challenging: Disgust (48%)
+**Results** (FER-2013 test set, 3,589 images):
+* Test Accuracy: **62.2%**
+* Weighted F1-Score: **0.61** (macro F1: 0.52)
+* Best performing: Happy (89.1%)
+* Most challenging: Disgust (3.6%, 2 of 55; disgust is the rarest class and is usually predicted as anger), then Fear (32.6%)
 
 ### Confusion Matrix
 
@@ -73,7 +73,7 @@ Display Results
 ## Stage 2: RAG & Sentiment Pipeline
 
 ### Data
-Generated 700 synthetic reviews (100 per emotion) to simulate customer feedback for each emotion.
+Generated 500 synthetic reviews to simulate customer feedback, each built from a Stage 1 prediction and labelled with its predicted emotion: happiness 128, neutral 120, sadness 87, anger 58, surprise 54, fear 53. Disgust has no reviews because the model almost never predicts it.
 
 ### RAG Pipeline Components
 
@@ -90,7 +90,7 @@ Generated 700 synthetic reviews (100 per emotion) to simulate customer feedback 
 ### 1. Technology Choices
 
 * **ResNet-50**: Proven CNN architecture, faster training than ViT for small datasets
-* **FAISS**: Efficient local vector search, perfect for 700 reviews
+* **FAISS**: Efficient local vector search, perfect for 500 reviews
 * **LangChain**: Simplified RAG pipeline development
 * **Flan-T5**: Lightweight, good summarization without API costs
 
