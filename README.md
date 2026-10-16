@@ -41,7 +41,7 @@ Query Generation
          ↓
 RAG Pipeline (FAISS + LangChain)
          ↓
-LLM Summarization (Flan-T5)
+LLM Summarisation (Flan-T5)
          ↓
 Sentiment Analysis (RoBERTa)
          ↓
