@@ -102,4 +102,7 @@ with tab2:
     if st.session_state.get("searched"):
         with st.spinner("Searching review database..."):
             result = models.search_reviews(st.session_state.searched)
+        if result["emotion"]:
+            adjective, emoji = EMOTIONS[result["emotion"]]
+            st.caption(f"{emoji} Your question mentions feeling {adjective}, so only reviews tagged *{result['emotion']}* are shown.")
         show_results(result, "No reviews found matching your query.")

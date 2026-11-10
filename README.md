@@ -20,7 +20,7 @@ This project detects facial emotions from images and uses that emotion to retrie
 
 ### Tech Stack
 
-* **Vision Model**: ResNet-50 (fine-tuned on FER-2013)
+* **Vision Model**: ResNet-50 (fine-tuned on FER-2013), applied to the largest detected face
 * **Embeddings**: sentence-transformers/all-MiniLM-L6-v2
 * **Vector Store**: FAISS
 * **LLM**: google/flan-t5-base
@@ -34,6 +34,8 @@ This project detects facial emotions from images and uses that emotion to retrie
 
 ```text
 User uploads image
+         ↓
+Face Crop (OpenCV face detector)
          ↓
 Emotion Detection (ResNet-50)
          ↓
