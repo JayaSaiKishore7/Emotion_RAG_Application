@@ -6,7 +6,6 @@ __pycache__/
 .vscode/
 .env
 data/
-data/faiss_index/
 *.pkl
 *.faiss
 .DS_Store

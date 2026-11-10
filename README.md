@@ -136,7 +136,7 @@ For millions of reviews:
 ## Project Structure
 
 ```text
-AI Engineer assignment/
+Emotion_RAG_Application/
 ├── Deliverables (Stage 1)/
 │   ├── model/                    # Fine-tuned ResNet-50
 │   ├── confusion_matrix.png
@@ -150,8 +150,9 @@ AI Engineer assignment/
 ├── Deliverables (Stage 3)/       # App screenshots
 ├── AI_part1.ipynb               # Stage 1: Model training
 ├── AI_part2.ipynb               # Stage 2: RAG pipeline
-├── core/models.py               # Core functions
-├── app.py             # Web interface
+├── core/models.py               # Model loading, emotion, retrieval, sentiment
+├── app.py                       # Streamlit web interface
+├── run_core_tests.py            # Smoke test for core/models.py
 ├── requirements.txt
 └── README.md
 ```
@@ -161,13 +162,15 @@ AI Engineer assignment/
 ## How to Run
 
 ### Prerequisites
-- Python 3.8+
-- Git
+- Python 3.10+
+- Git (with Git LFS for the model and image files)
 
 ### Installation
 
 ```bash
-clone it first
+git clone https://github.com/JayaSaiKishore7/Emotion_RAG_Application.git
+cd Emotion_RAG_Application
+
 # Create virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
@@ -177,6 +180,9 @@ pip install -r requirements.txt
 
 # Run app
 streamlit run app.py
+
+# Optional smoke test of the model pipeline
+python run_core_tests.py
 ```
 
 App opens at `http://localhost:8501`
