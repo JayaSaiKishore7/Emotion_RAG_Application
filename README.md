@@ -14,8 +14,8 @@ This project detects facial emotions from images and uses that emotion to retrie
 
 * **Emotion Detection**: Classifies 7 emotions (Happy, Sad, Angry, Disgust, Fear, Surprise, Neutral)
 * **RAG System**: Links emotions to relevant reviews using FAISS vector search
-* **AI Summaries**: Summarizes retrieved reviews using Flan-T5
 * **Sentiment Analysis**: Analyzes sentiment of each review
+* **Summary**: One line counting the retrieved reviews' sentiment (e.g. "3 of 4 reviews are negative, 1 is neutral.")
 * **Web Interface**: Streamlit app for easy interaction
 
 ### Tech Stack
@@ -23,7 +23,6 @@ This project detects facial emotions from images and uses that emotion to retrie
 * **Vision Model**: ResNet-50 (fine-tuned on FER-2013), applied to the largest detected face
 * **Embeddings**: sentence-transformers/all-MiniLM-L6-v2
 * **Vector Store**: FAISS
-* **LLM**: google/flan-t5-base
 * **Sentiment**: cardiffnlp/twitter-roberta-base-sentiment-latest
 * **Framework**: LangChain
 * **UI**: Streamlit
@@ -43,9 +42,7 @@ Query Generation
          ↓
 RAG Pipeline (FAISS + LangChain)
          ↓
-LLM Summarisation (Flan-T5)
-         ↓
-Sentiment Analysis (RoBERTa)
+Sentiment Analysis (RoBERTa) + one-line sentiment summary
          ↓
 Display Results
 ```
@@ -82,8 +79,8 @@ Generated 500 synthetic reviews to simulate customer feedback, each built from a
 1. **Embeddings**: Converted reviews to vectors using `all-MiniLM-L6-v2`
 2. **Vector Store**: Stored in FAISS index for fast similarity search
 3. **Retrieval**: LangChain retrieves top-4 relevant reviews
-4. **Summarization**: Flan-T5 generates concise summaries
-5. **Sentiment**: RoBERTa classifies each review sentiment
+4. **Sentiment**: RoBERTa classifies each review sentiment
+5. **Summary**: a one-line count of those sentiments. The original Flan-T5 summarizer was removed: `flan-t5-base` only copied reviews verbatim, under every prompt tested
 
 ---
 
@@ -94,11 +91,11 @@ Generated 500 synthetic reviews to simulate customer feedback, each built from a
 * **ResNet-50**: Proven CNN architecture, faster training than ViT for small datasets
 * **FAISS**: Efficient local vector search, perfect for 500 reviews
 * **LangChain**: Simplified RAG pipeline development
-* **Flan-T5**: Lightweight, good summarization without API costs
+* **No LLM summarizer**: Flan-T5 was tried first; at `base` size it copied reviews instead of summarizing, and larger models don't fit Streamlit Cloud's memory. A sentiment count is honest and free
 
 ### 2. Data Flow
 
-`Image (bytes)` → `Emotion (string)` → `Query (string)` → `Embeddings (vector)` → `FAISS Search` → `Reviews (text)` → `LLM Summary` → `UI Display`
+`Image (bytes)` → `Emotion (string)` → `Query (string)` → `Embeddings (vector)` → `FAISS Search` → `Reviews (text)` → `Sentiment + Summary line` → `UI Display`
 
 **Deployment:** Would use FastAPI with 3 endpoints:
 - `POST /predict_emotion` - Image → Emotion

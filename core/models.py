@@ -1,12 +1,13 @@
-﻿"""Emotion detection, review retrieval, summarization and sentiment.
+﻿"""Emotion detection, review retrieval and sentiment.
 
-The app talks to this module through four functions: `load`, `detect_emotion`,
-`search_reviews` and `sentiment`. Models load once per process (cache_resource);
-results are cached per input (cache_data), so Streamlit reruns stay cheap.
+The app talks to this module through three functions: `load`, `detect_emotion`
+and `search_reviews`. Models load once per process (cache_resource); results are
+cached per input (cache_data), so Streamlit reruns stay cheap.
 """
 
 import io
 import re
+from collections import Counter
 
 import cv2
 import numpy as np
@@ -14,14 +15,13 @@ import streamlit as st
 import torch
 from huggingface_hub import snapshot_download
 from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings, HuggingFacePipeline
+from langchain_huggingface import HuggingFaceEmbeddings
 from PIL import Image, ImageOps
 from transformers import AutoImageProcessor, AutoModelForImageClassification, pipeline
 
 EMOTION_MODEL_REPO = "primal-sage/emotion-model"
 RAG_INDEX_REPO = "primal-sage/my-rag-index"
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-LLM_MODEL = "google/flan-t5-base"
 SENTIMENT_MODEL = "cardiffnlp/twitter-roberta-base-sentiment-latest"
 
 # Exact commits to load. Without these, anyone who can push to a repo changes what
@@ -32,7 +32,6 @@ REVISIONS = {
     EMOTION_MODEL_REPO: "b6db94c4536e2ed824906df031d2d9225cd541bc",
     RAG_INDEX_REPO: "641233bc2618cafd435a01c2580ada0cd6e40d55",
     EMBEDDING_MODEL: "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
-    LLM_MODEL: "7bcac572ce56db69c1ea7c8af255c5d7c9672fc2",
     SENTIMENT_MODEL: "3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7",
 }
 
@@ -49,15 +48,6 @@ QUERY_EMOTIONS = {
 }
 # "not happy", "wasn't angry": the word alone would pick the wrong tag, so don't filter.
 NEGATION = r"\b(not|no|never|without|hardly)\b|n't\b"
-
-PROMPT_TEMPLATE = """Based on the customer reviews below, provide a clear and concise summary that directly answers the question.
-
-Customer Reviews:
-{context}
-
-Question: {question}
-
-Provide a brief summary (2-3 sentences maximum):"""
 
 
 @st.cache_resource(show_spinner=False)
@@ -86,11 +76,6 @@ def load():
         "emotion_model": emotion_model,
         # Safe only because the commit is pinned above; FAISS requires opting in to load it.
         "db": FAISS.load_local(index_dir, embeddings, allow_dangerous_deserialization=True),
-        "llm": HuggingFacePipeline(
-            pipeline=pipeline(
-                "text2text-generation", model=LLM_MODEL, revision=REVISIONS[LLM_MODEL], max_length=150, device=device_id
-            )
-        ),
         "sentiment": pipeline(
             "sentiment-analysis",
             model=SENTIMENT_MODEL,
@@ -130,19 +115,14 @@ def detect_emotion(image_bytes: bytes) -> str:
     return m["emotion_model"].config.id2label[logits.argmax(-1).item()]
 
 
-@st.cache_data(show_spinner=False)
-def sentiment(text: str) -> str:
-    """Return e.g. "POSITIVE (Score: 0.98)"."""
-    result = load()["sentiment"](text)[0]
-    return f"{result['label'].upper()} (Score: {result['score']:.2f})"
-
-
 @st.cache_data(show_spinner=False, max_entries=256)
 def search_reviews(query: str, emotion: str | None = None) -> dict:
-    """Retrieve the 4 most relevant distinct reviews for `query` and summarize them.
+    """Retrieve the 4 most relevant distinct reviews for `query`, with sentiment.
 
     `emotion` restricts results to reviews tagged with that emotion. When it's None,
-    a single unnegated emotion word in the query ("angry", "sad") sets it. Returns
+    a single unnegated emotion word in the query ("angry", "sad") sets it. The summary
+    is a plain sentiment count ("3 of 4 reviews are negative, 1 is neutral.").
+    Flan-T5 used to write it, but it only copied reviews verbatim. Returns
     {"summary": str, "emotion": str | None, "reviews": [{"text", "emotion", "sentiment"}, ...]}.
     """
     if emotion is None and not re.search(NEGATION, query, re.IGNORECASE):
@@ -160,16 +140,26 @@ def search_reviews(query: str, emotion: str | None = None) -> dict:
     docs = list(unique.values())[:4]
     if not docs:
         return {"summary": "No relevant documents found for your query.", "emotion": emotion, "reviews": []}
-    context = "\n\n".join(doc.page_content for doc in docs)
+    scores = m["sentiment"]([doc.page_content for doc in docs])  # one batched call
+    # Most common sentiment first; ties keep retrieval order.
+    counts = Counter(s["label"].lower() for s in scores).most_common()
+    (top_label, top_count), rest = counts[0], counts[1:]
+    if not rest:
+        summary = f"All {len(docs)} reviews are {top_label}." if len(docs) > 1 else f"The only matching review is {top_label}."
+    else:
+        summary = ", ".join(
+            [f"{top_count} of {len(docs)} reviews {'is' if top_count == 1 else 'are'} {top_label}"]
+            + [f"{count} {'is' if count == 1 else 'are'} {label}" for label, count in rest]
+        ) + "."
     return {
-        "summary": m["llm"].invoke(PROMPT_TEMPLATE.format(context=context, question=query)),
+        "summary": summary,
         "emotion": emotion,
         "reviews": [
             {
                 "text": doc.page_content,
                 "emotion": doc.metadata.get("emotion", "Unknown"),
-                "sentiment": sentiment(doc.page_content),
+                "sentiment": f"{s['label'].upper()} (Score: {s['score']:.2f})",
             }
-            for doc in docs
+            for doc, s in zip(docs, scores)
         ],
     }

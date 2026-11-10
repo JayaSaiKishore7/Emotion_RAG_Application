@@ -28,7 +28,7 @@ with st.spinner("🚀 Warming up the AI models... This may take a moment the fir
 
 
 def show_results(result: dict, empty_message: str):
-    st.subheader("🔍 AI Summary")
+    st.subheader("🔍 Summary")
     st.write(result["summary"])
     if not result["reviews"]:
         st.warning(empty_message)

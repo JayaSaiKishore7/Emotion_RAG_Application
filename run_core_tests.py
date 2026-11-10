@@ -1,6 +1,7 @@
 ﻿"""Smoke test for core.models: python run_core_tests.py (exits non-zero on failure)."""
 
 import io
+from collections import Counter
 
 from PIL import Image
 
@@ -60,9 +61,17 @@ for query, expected in {
     if expected:
         assert all(r["emotion"] == expected for r in result["reviews"]), query
 
-sentiment = models.sentiment("This is a wonderful product!")
-print("sentiment:", sentiment)
-assert sentiment.startswith("POSITIVE")
-assert models.sentiment("great product " * 600)  # longer than the model's 512-token limit
+# Summary is a sentiment count that agrees with the review cards.
+result = models.search_reviews("What are customers saying who feel happy?", "happiness")
+print("happiness summary:", result["summary"])
+assert result["summary"] == "All 4 reviews are positive.", result["summary"]
+result = models.search_reviews("What makes customers sad?")
+counts = Counter(r["sentiment"].split()[0].lower() for r in result["reviews"])
+print("sad summary:", result["summary"], dict(counts))
+assert all(f"{n} " in result["summary"] and label in result["summary"] for label, n in counts.items())
+
+sentiment = models.load()["sentiment"]
+assert sentiment("This is a wonderful product!")[0]["label"] == "positive"
+assert sentiment("great product " * 600)  # longer than the model's 512-token limit
 
 print("ALL CHECKS PASSED")
