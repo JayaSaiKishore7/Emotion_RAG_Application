@@ -1,6 +1,6 @@
 # Facial Emotion-Driven Review Analysis System
 
-**Live Demo:** [https://emotionragapp-2.streamlit.app/](https://emotionragapp-2.streamlit.app/)
+**Live Demo:** [https://emotionragapplication-qu3nfsvuxpgdevcbkq8zzy.streamlit.app/](https://emotionragapplication-qu3nfsvuxpgdevcbkq8zzy.streamlit.app/)
 
 ---
 
@@ -161,8 +161,8 @@ Emotion_RAG_Application/
 ## How to Run
 
 ### Prerequisites
-- Python 3.10+
-- Git (with Git LFS for the model and image files)
+- Python 3.11–3.13 (3.12 recommended; on Streamlit Cloud pick 3.12 under Advanced settings, since 3.14 can't install `pyarrow` for Streamlit 1.51)
+- Git
 
 ### Installation
 
