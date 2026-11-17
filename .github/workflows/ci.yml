@@ -1,5 +1,6 @@
-# Lint and smoke-test every push and pull request. This does not deploy:
-# Streamlit Community Cloud deploys on its own when the deploy branch changes.
+# Lint and smoke-test every push and pull request. When a push to main passes,
+# fast-forward the prod branch to it: Streamlit Community Cloud deploys from prod,
+# so only tested commits go live.
 name: CI
 
 on:
@@ -13,7 +14,7 @@ concurrency:
 jobs:
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
@@ -23,12 +24,9 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      # CPU-only torch keeps CI fast (the default Linux wheel pulls ~3 GB of CUDA).
-      # "2.9.1+cpu" satisfies requirements.txt's torch==2.9.1, so pip keeps it.
+      # requirements.txt is the full lock, so this installs exactly what production does.
       - name: Install dependencies
-        run: |
-          pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
-          pip install -r requirements.txt ruff==0.14.5
+        run: pip install -r requirements.txt ruff==0.14.5
 
       - name: Lint
         run: ruff check app.py core run_core_tests.py
@@ -42,3 +40,19 @@ jobs:
 
       - name: Smoke test
         run: python run_core_tests.py
+
+  promote:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Fast-forward only: if prod was changed by hand, this fails instead of overwriting it.
+      # GitHub refuses this push when the commit changes files in .github/workflows;
+      # then push it yourself after CI passes: git push origin main:prod
+      - name: Fast-forward prod to this commit
+        run: git push origin HEAD:refs/heads/prod

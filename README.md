@@ -152,7 +152,9 @@ Emotion_RAG_Application/
 ├── core/models.py               # Model loading, emotion, retrieval, sentiment
 ├── app.py                       # Streamlit web interface
 ├── run_core_tests.py            # Smoke test for core/models.py
-├── requirements.txt
+├── .github/workflows/ci.yml     # Lint + smoke test; promotes passing main to prod
+├── requirements.in              # Direct dependencies (edit this)
+├── requirements.txt             # Full lock generated from requirements.in
 └── README.md
 ```
 
@@ -190,13 +192,23 @@ App opens at `http://localhost:8501`
 
 ## Deployment
 
-The live app runs on Streamlit Community Cloud from this repo's `main` branch (`app.py`). **Every push to `main` redeploys it**; there is no separate approval step.
+The live app runs on Streamlit Community Cloud from this repo's **`prod`** branch (`app.py`). Nobody pushes to `prod` by hand:
+
+```text
+push to main → CI: ruff + run_core_tests.py → passed? → CI fast-forwards prod → Streamlit redeploys
+                                            → failed? → prod stays on the last good commit
+```
 
 ### Before pushing
-- CI (`.github/workflows/ci.yml`) runs `ruff` and `run_core_tests.py` on every push and pull request. It does not deploy, and it doesn't block a deploy either, so check that it passes on a branch before merging into `main`.
 - Locally: `python run_core_tests.py` must print `ALL CHECKS PASSED`.
+- After pushing, check the commit's CI result on GitHub (Actions tab). A red result means it did not go live.
+- If a commit changes `.github/workflows/`, GitHub won't let CI push it to `prod`. Once CI passes, run `git push origin main:prod` yourself.
+
+### Dependencies
+`requirements.in` lists the direct dependencies; `requirements.txt` is the full lock of all ~120 packages, which is what Streamlit and CI install. To add or upgrade a package, edit `requirements.in` and regenerate the lock with the command at the top of `requirements.txt` (needs `pip install uv`). A loose lock once broke a rebuild with no code change: `pyarrow` stopped installing.
 
 ### Settings that live outside the repo
+- **Deploy branch `prod`**, file `app.py`, in the Streamlit app's settings.
 - **Python 3.12**, under Advanced settings when creating the app. The default (3.14) can't install `pyarrow` for Streamlit 1.51. The version can't be changed after deploying; to change it, delete the app and recreate it.
 - **No environment variables or secrets are needed.** All Hugging Face models are public and pinned by commit in `core/models.py`.
 - **Don't use Git LFS.** The GitHub LFS quota ran out once and clones failed; the model and images are regular Git files.
@@ -208,9 +220,9 @@ The live app runs on Streamlit Community Cloud from this repo's `main` branch (`
 Open the live app, upload a face photo, and check that an emotion and four reviews appear. The URL returning a page doesn't prove the app works, because Streamlit shows its page even when the app crashed. Errors are in the app's logs ("Manage app" in the bottom-right corner, visible to the owner only).
 
 ### Rolling back
-1. `git revert <bad commit>` and `git push origin main`. Streamlit redeploys the reverted code.
-2. If the app is stuck or still failing, open the Streamlit dashboard and choose **Reboot app**.
-3. If the build itself fails (e.g. a dependency stops installing), revert the `requirements.txt` change the same way.
+1. Fastest: point `prod` back at the last good commit with `git push --force origin <good commit>:prod`. Streamlit redeploys it; `main` is untouched. Find the commit with `git log origin/prod`.
+2. Then `git revert <bad commit>` and push to `main`. Do this before pushing anything else: the next push to `main` that passes CI moves `prod` forward again, bad commit included unless it was reverted.
+3. If the app is stuck or still failing, open the Streamlit dashboard and choose **Reboot app**.
 
 
 
