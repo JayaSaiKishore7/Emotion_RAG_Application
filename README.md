@@ -1,6 +1,6 @@
 # Facial Emotion-Driven Review Analysis System
 
-**Live Demo:** [https://emotionragapplication-qu3nfsvuxpgdevcbkq8zzy.streamlit.app/](https://emotionragapplication-qu3nfsvuxpgdevcbkq8zzy.streamlit.app/)
+**Live Demo:** [https://emotionragapplication-dmj76csbefwfku6hgnchkt.streamlit.app/](https://emotionragapplication-dmj76csbefwfku6hgnchkt.streamlit.app/)
 
 ---
 
@@ -215,8 +215,8 @@ push to main → CI: ruff + run_core_tests.py → passed? → CI fast-forwards p
 `requirements.in` lists the direct dependencies; `requirements.txt` is the full lock of all ~120 packages, which is what Streamlit and CI install. To add or upgrade a package, edit `requirements.in` and regenerate the lock with the command at the top of `requirements.txt` (needs `pip install uv`). A loose lock once broke a rebuild with no code change: `pyarrow` stopped installing.
 
 ### Settings that live outside the repo
-- **Deploy branch `prod`**, file `app.py`, in the Streamlit app's settings.
-- **Python 3.12**, under Advanced settings when creating the app. The default (3.14) can't install `pyarrow` for Streamlit 1.51. The version can't be changed after deploying; to change it, delete the app and recreate it.
+- **Deploy branch `prod`**, file `app.py`, chosen when creating the app. The branch can't be changed afterwards: to change it, delete the app and recreate it. Keep the new auto-generated URL and update the Live Demo link above: an app recreated right away on the deleted app's URL got stuck loading with empty logs.
+- **Python 3.12**, under Advanced settings when creating the app, or later under the app's Settings. The default (3.14) can't install `pyarrow` for Streamlit 1.51.
 - **No environment variables or secrets are needed.** All Hugging Face models are public and pinned by commit in `core/models.py`.
 - **Don't use Git LFS.** The GitHub LFS quota ran out once and clones failed; the model and images are regular Git files.
 
