@@ -141,12 +141,15 @@ Emotion_RAG_Application/
 │   ├── confusion_matrix.png
 │   ├── pre_Class acuuracy.png
 │   ├── evaluation_metrics.txt
+│   ├── training_metrics.txt
 │   └── stage1_predictions.csv
 ├── Deliverables (Stage 2)/
 │   ├── rag/                      # FAISS index files
 │   ├── generated_reviews.csv
-│   └── query_results.csv
+│   ├── query_results.csv
+│   └── stage2_report.txt
 ├── Deliverables (Stage 3)/       # App screenshots
+├── .devcontainer/               # Dev container config
 ├── AI_part1.ipynb               # Stage 1: Model training
 ├── AI_part2.ipynb               # Stage 2: RAG pipeline
 ├── core/models.py               # Model loading, emotion, retrieval, sentiment
@@ -202,7 +205,11 @@ push to main → CI: ruff + run_core_tests.py → passed? → CI fast-forwards p
 ### Before pushing
 - Locally: `python run_core_tests.py` must print `ALL CHECKS PASSED`.
 - After pushing, check the commit's CI result on GitHub (Actions tab). A red result means it did not go live.
-- If a commit changes `.github/workflows/`, GitHub won't let CI push it to `prod`. Once CI passes, run `git push origin main:prod` yourself.
+- If `test` passes but `promote` fails, `prod` didn't move. Run `git push origin main:prod` yourself.
+
+### When CI fails without running
+- **"The job was not started because your account is locked due to a billing issue":** no code ran. Fix billing at github.com/settings/billing, then re-run the run.
+- **Re-run only the newest run on `main`.** CI cancels a running build when another one starts on the same branch, so re-running several old runs at once cancels the newest commit's run ("Canceling since a higher priority waiting request ... exists").
 
 ### Dependencies
 `requirements.in` lists the direct dependencies; `requirements.txt` is the full lock of all ~120 packages, which is what Streamlit and CI install. To add or upgrade a package, edit `requirements.in` and regenerate the lock with the command at the top of `requirements.txt` (needs `pip install uv`). A loose lock once broke a rebuild with no code change: `pyarrow` stopped installing.
@@ -223,6 +230,4 @@ Open the live app, upload a face photo, and check that an emotion and four revie
 1. Fastest: point `prod` back at the last good commit with `git push --force origin <good commit>:prod`. Streamlit redeploys it; `main` is untouched. Find the commit with `git log origin/prod`.
 2. Then `git revert <bad commit>` and push to `main`. Do this before pushing anything else: the next push to `main` that passes CI moves `prod` forward again, bad commit included unless it was reverted.
 3. If the app is stuck or still failing, open the Streamlit dashboard and choose **Reboot app**.
-
-
 
