@@ -8,6 +8,8 @@ from PIL import Image
 from core import models
 
 labels = models.load()["emotion_model"].config.id2label.values()
+# The app looks up every predicted label in EMOTIONS; a missing one would crash the page.
+assert set(labels) == set(models.EMOTIONS) == set(models.QUERY_EMOTIONS), sorted(labels)
 
 buffer = io.BytesIO()
 Image.new("RGB", (224, 224), color="white").save(buffer, format="PNG")

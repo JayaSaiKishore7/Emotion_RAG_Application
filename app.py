@@ -1,22 +1,13 @@
 """Streamlit app for Facial Emotion-Driven Review Analysis."""
 
 import io
+import re
 
 import streamlit as st
 from PIL import Image
 
 from core import models
-
-# Model label -> (adjective used in the review query, emoji shown with the result)
-EMOTIONS = {
-    "anger": ("angry", "😠"),
-    "disgust": ("disgusted", "🤢"),
-    "fear": ("afraid", "😨"),
-    "happiness": ("happy", "😄"),
-    "sadness": ("sad", "😢"),
-    "surprise": ("surprised", "😲"),
-    "neutral": ("neutral", "😐"),
-}
+from core.models import EMOTIONS
 
 st.set_page_config(page_title="Facial Emotion RAG System", page_icon="🤖", layout="wide")
 
@@ -41,7 +32,8 @@ def show_results(result: dict, empty_message: str):
             col_a.markdown(f"*Emotion Tag: {review['emotion']}*")
             col_b.markdown("**Sentiment**")
             col_b.markdown(review["sentiment"])
-            st.write(review["text"])
+            # Reviews are plain text: escape Markdown so "$20 ... $5" isn't rendered as math.
+            st.markdown(re.sub(r"([\\`*_{}\[\]()#+\-.!$|<>~])", r"\\\1", review["text"]))
 
 
 tab1, tab2 = st.tabs(["📸 Query with Photo", "💬 Manual Query"])
@@ -57,8 +49,9 @@ with tab1:
     image_bytes = uploaded_file.getvalue() if uploaded_file is not None else None
     if image_bytes is not None:
         # Validate once at the boundary: a renamed or corrupt file must not crash the page.
+        # Fully decode: verify() barely checks JPEGs and passes truncated ones.
         try:
-            Image.open(io.BytesIO(image_bytes)).verify()
+            Image.open(io.BytesIO(image_bytes)).load()
         except Exception:
             col2.error("This file can't be read as an image. Please upload a JPG or PNG photo.")
             image_bytes = None

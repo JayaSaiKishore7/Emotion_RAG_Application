@@ -35,6 +35,18 @@ REVISIONS = {
     SENTIMENT_MODEL: "3216a57f2a0d9c45a2e6c20157c20c49fb4bf9c7",
 }
 
+# Model label -> (adjective used in the review query, emoji shown with the result).
+# Must cover every label the emotion model returns; run_core_tests.py checks this.
+EMOTIONS = {
+    "anger": ("angry", "😠"),
+    "disgust": ("disgusted", "🤢"),
+    "fear": ("afraid", "😨"),
+    "happiness": ("happy", "😄"),
+    "sadness": ("sad", "😢"),
+    "surprise": ("surprised", "😲"),
+    "neutral": ("neutral", "😐"),
+}
+
 # Emotion words in a typed query -> review tag to filter on. Patterns anchor at the
 # start of a word, so "unhappy" doesn't count as happiness and "made" isn't "mad".
 QUERY_EMOTIONS = {
