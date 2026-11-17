@@ -116,10 +116,15 @@ def detect_emotion(image_bytes: bytes) -> str:
     m = load()
     # Phone photos store rotation in EXIF; without this the model sees a sideways face.
     image = ImageOps.exif_transpose(Image.open(io.BytesIO(image_bytes))).convert("RGB")
-    faces = FACE_DETECTOR.detectMultiScale(np.array(image.convert("L")), scaleFactor=1.1, minNeighbors=5, minSize=(48, 48))
+    # Detect on a copy at most 1024px wide: full-size phone photos make the cascade slow.
+    # The crop below still comes from the full-resolution image.
+    small = image.copy()
+    small.thumbnail((1024, 1024))
+    scale = image.width / small.width
+    faces = FACE_DETECTOR.detectMultiScale(np.array(small.convert("L")), scaleFactor=1.1, minNeighbors=5, minSize=(48, 48))
     if len(faces):
         # Largest detection: background texture can produce small false faces.
-        x, y, w, h = max(faces, key=lambda f: f[2] * f[3])
+        x, y, w, h = (round(v * scale) for v in max(faces, key=lambda f: f[2] * f[3]))
         image = image.crop((x, y, x + w, y + h))
     inputs = m["emotion_processor"](images=image, return_tensors="pt").to(m["device"])
     with torch.no_grad():
