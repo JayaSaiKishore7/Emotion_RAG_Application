@@ -1,0 +1,44 @@
+# Lint and smoke-test every push and pull request. This does not deploy:
+# Streamlit Community Cloud deploys on its own when the deploy branch changes.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      # Same Python as production (set in Streamlit Cloud's Advanced settings).
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      # CPU-only torch keeps CI fast (the default Linux wheel pulls ~3 GB of CUDA).
+      # "2.9.1+cpu" satisfies requirements.txt's torch==2.9.1, so pip keeps it.
+      - name: Install dependencies
+        run: |
+          pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt ruff==0.14.5
+
+      - name: Lint
+        run: ruff check app.py core run_core_tests.py
+
+      # Models are pinned by commit in core/models.py, so that file keys the cache.
+      - name: Cache Hugging Face models
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-${{ hashFiles('core/models.py') }}
+
+      - name: Smoke test
+        run: python run_core_tests.py
