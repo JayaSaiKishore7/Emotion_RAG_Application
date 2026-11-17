@@ -215,7 +215,7 @@ push to main → CI: ruff + run_core_tests.py → passed? → CI fast-forwards p
 `requirements.in` lists the direct dependencies; `requirements.txt` is the full lock of all ~120 packages, which is what Streamlit and CI install. To add or upgrade a package, edit `requirements.in` and regenerate the lock with the command at the top of `requirements.txt` (needs `pip install uv`). A loose lock once broke a rebuild with no code change: `pyarrow` stopped installing.
 
 ### Settings that live outside the repo
-- **Deploy branch `prod`**, file `app.py`, chosen when creating the app. The branch can't be changed afterwards: to change it, delete the app and recreate it. Keep the new auto-generated URL and update the Live Demo link above: an app recreated right away on the deleted app's URL got stuck loading with empty logs.
+- **Deploy branch `prod`**, file `app.py`, chosen when creating the app. Check it on the Streamlit dashboard: the app must be listed as `prod · app.py`. It once ran from `main` unnoticed, which sent every push live untested. The branch can't be changed afterwards: to change it, delete the app and recreate it. Keep the new auto-generated URL and update the Live Demo link above: an app recreated right away on the deleted app's URL got stuck loading with empty logs.
 - **Python 3.12**, under Advanced settings when creating the app, or later under the app's Settings. The default (3.14) can't install `pyarrow` for Streamlit 1.51.
 - **No environment variables or secrets are needed.** All Hugging Face models are public and pinned by commit in `core/models.py`.
 - **Don't use Git LFS.** The GitHub LFS quota ran out once and clones failed; the model and images are regular Git files.
@@ -224,10 +224,11 @@ push to main → CI: ruff + run_core_tests.py → passed? → CI fast-forwards p
 `REVISIONS` in `core/models.py` pins each Hugging Face repo to a commit. The review index (`primal-sage/my-rag-index`) was built with `all-MiniLM-L6-v2` embeddings, so if either one changes, change both together. Run `run_core_tests.py` before pushing: search quietly returns wrong reviews if they don't match.
 
 ### After deploying
-Open the live app, upload a face photo, and check that an emotion and four reviews appear. The URL returning a page doesn't prove the app works, because Streamlit shows its page even when the app crashed. Errors are in the app's logs ("Manage app" in the bottom-right corner, visible to the owner only).
+A redeploy or reboot takes about 3–5 minutes ("Your app is in the oven", then a spinner while models download). Open the live app, upload a face photo, and check that an emotion and four reviews appear. Without a photo, the **Manual Query** tab's "What are customers happy about?" example should return four reviews and a summary line. The URL returning a page doesn't prove the app works, because Streamlit shows its page even when the app crashed. Errors are in the app's logs ("Manage app" in the bottom-right corner, visible to the owner only).
 
 ### Rolling back
 1. Fastest: point `prod` back at the last good commit with `git push --force origin <good commit>:prod`. Streamlit redeploys it; `main` is untouched. Find the commit with `git log origin/prod`.
 2. Then `git revert <bad commit>` and push to `main`. Do this before pushing anything else: the next push to `main` that passes CI moves `prod` forward again, bad commit included unless it was reverted.
 3. If the app is stuck or still failing, open the Streamlit dashboard and choose **Reboot app**.
+4. If it still shows only a spinner after 15 minutes and its logs are empty, delete the app and recreate it with the settings above.
 
